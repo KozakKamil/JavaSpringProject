@@ -1,6 +1,7 @@
 package pl.opole.uni.springWebApp.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Order {
@@ -11,9 +12,18 @@ public class Order {
   @JoinColumn(name="supplierID")
   private Supplier supplier;
 
-  //@ManyToMany
-  //private Product;
+  @ManyToMany
+  @JoinTable(name = "order_product", joinColumns = {@JoinColumn(name = "orderID")},
+    inverseJoinColumns = {@JoinColumn(name = "product_ID")})
+  private List<Product> productList;
 
+  public List<Product> getProductList() {
+    return productList;
+  }
+
+  public void setProductList(List<Product> productList) {
+    this.productList = productList;
+  }
 
   public int getOrderID() {
     return orderID;
