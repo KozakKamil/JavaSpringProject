@@ -10,6 +10,24 @@ public class Order {
   @ManyToOne
   @JoinColumn(name="supplierID")
   private Supplier supplier;
+
   //@ManyToMany
   //private Product;
+
+
+  public int getOrderID() {
+    return orderID;
+  }
+
+  public void setOrderID(int orderID) {
+    this.orderID = orderID;
+  }
+
+  public Supplier getSupplier() {
+    return supplier;
+  }
+
+  public void setSupplier(Supplier supplier) {
+    this.supplier = supplier;
+  }
 }
