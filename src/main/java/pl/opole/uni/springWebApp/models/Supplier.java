@@ -7,20 +7,9 @@ import javax.persistence.Id;
 
 @Entity
 public class Supplier extends Person{
- @Id
- @GeneratedValue(strategy = GenerationType.AUTO)
- private int supplierID;
+
  private String nip;
  private String regon;
-
-  public int getSupplierID() {
-    return supplierID;
-  }
-
-  public void setSupplierID(int supplierID) {
-    this.supplierID = supplierID;
-  }
-
   public String getNip() {
     return nip;
   }

@@ -16,16 +16,16 @@ public class Product {
   @JoinColumn(name="categoryID")
   private Category category;
   @ManyToOne
-  @JoinColumn(name="supplierID")
+  @JoinColumn(name="personID")
   private Supplier supplier;
   @ManyToMany
-  private List<Order> orderList;
+  private List<CustomerOrder> orderList;
 
-  public List<Order> getOrderList() {
+  public List<CustomerOrder> getOrderList() {
     return orderList;
   }
 
-  public void setOrderList(List<Order> orderList) {
+  public void setOrderList(List<CustomerOrder> orderList) {
     this.orderList = orderList;
   }
 

@@ -4,12 +4,12 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Order {
+public class CustomerOrder {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private int orderID;
   @ManyToOne
-  @JoinColumn(name="supplierID")
+  @JoinColumn(name="personID")
   private Supplier supplier;
 
   @ManyToMany
