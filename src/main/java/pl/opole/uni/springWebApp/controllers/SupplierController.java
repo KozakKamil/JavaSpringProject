@@ -15,6 +15,6 @@ public class SupplierController {
   private SupplierService supplierService;
   @GetMapping ("/Supplier")
   public List<Supplier> getSupplier() {
-    return supplierService.getSupplier();
+    return supplierService.getAllItems();
   }
 }

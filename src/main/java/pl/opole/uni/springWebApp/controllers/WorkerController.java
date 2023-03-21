@@ -15,6 +15,6 @@ public class WorkerController {
 
   @GetMapping("/Worker")
   public List<Worker> getWorker() {
-    return workerService.getWorker();
+    return workerService.getAllItems();
   }
 }
