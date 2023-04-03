@@ -1,8 +1,7 @@
 package pl.opole.uni.springWebApp.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.opole.uni.springWebApp.models.Worker;
 import pl.opole.uni.springWebApp.services.WorkerService;
 
@@ -16,5 +15,15 @@ public class WorkerController {
   @GetMapping("/Worker")
   public List<Worker> getWorker() {
     return workerService.getAllItems();
+  }
+
+  @PostMapping("/Worker")
+  public Worker addWorker(@RequestBody Worker newWorker){
+    return workerService.addWorker(newWorker);
+  }
+
+  @PutMapping("/Worker")
+  public Worker editWorker(@RequestParam Long personID, Worker newWorker){
+    return workerService.addWorker(newWorker);
   }
 }
