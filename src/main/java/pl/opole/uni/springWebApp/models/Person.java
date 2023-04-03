@@ -7,7 +7,7 @@ import javax.persistence.InheritanceType;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Person {
+public abstract class Person {
   @Id
   int personID;
   private String name;
