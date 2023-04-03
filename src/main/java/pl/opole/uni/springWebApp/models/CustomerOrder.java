@@ -7,7 +7,7 @@ import java.util.List;
 public class CustomerOrder {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private int orderID;
+  private Long orderID;
   @ManyToOne
   @JoinColumn(name="personID")
   private Supplier supplier;
@@ -25,11 +25,11 @@ public class CustomerOrder {
     this.productList = productList;
   }
 
-  public int getOrderID() {
+  public Long getOrderID() {
     return orderID;
   }
 
-  public void setOrderID(int orderID) {
+  public void setOrderID(Long orderID) {
     this.orderID = orderID;
   }
 

@@ -9,15 +9,15 @@ import javax.persistence.InheritanceType;
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Person {
   @Id
-  int personID;
+  Long personID;
   private String name;
   private String adderess;
 
-  public int getPersonID() {
+  public Long getPersonID() {
     return personID;
   }
 
-  public void setPersonID(int personID) {
+  public void setPersonID(Long personID) {
     this.personID = personID;
   }
 
