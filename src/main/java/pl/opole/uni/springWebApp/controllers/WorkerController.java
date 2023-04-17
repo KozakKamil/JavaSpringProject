@@ -19,11 +19,11 @@ public class WorkerController {
 
   @PostMapping("/Worker")
   public Worker addWorker(@RequestBody Worker newWorker){
-    return workerService.addWorker(newWorker);
+    return workerService.addItem(newWorker);
   }
 
   @PutMapping("/Worker")
-  public Worker editWorker(@RequestParam Long personID, Worker newWorker){
-    return workerService.addWorker(newWorker);
+  public Worker editWorker(@RequestParam Long id, @RequestBody Worker newWorker){
+    return workerService.editWorker(id, newWorker);
   }
 }

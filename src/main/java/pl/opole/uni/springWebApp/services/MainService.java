@@ -6,16 +6,18 @@ import pl.opole.uni.springWebApp.models.Worker;
 
 import java.util.List;
 
-public class MainService<E,R extends JpaRepository<E, Long>> {
+public class MainService<E ,R extends JpaRepository<E, Long>> {
   @Autowired
-  public R repo;
+  public R repo; //to nie błąd
 
   public List<E> getAllItems() {
 
     return repo.findAll();
   }
 
-  public void addItem(E item){
-
+  public E addItem(E item)
+  {
+    return repo.save(item);
   }
+
 }

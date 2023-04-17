@@ -9,14 +9,14 @@ import javax.persistence.Id;
 public class Category {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private int categoryID;
+  private Long categoryID;
   private String name;
 
-  public int getCategoryID() {
+  public Long getCategoryID() {
     return categoryID;
   }
 
-  public void setCategoryID(int categoryID) {
+  public void setCategoryID(Long categoryID) {
     this.categoryID = categoryID;
   }
 
