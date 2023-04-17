@@ -11,10 +11,10 @@ public class WorkerService extends MainService<Worker, IWorkerRepository> {
 
   public Worker editWorker (Long personID, Worker worker){
     Worker editWorker = repo.getById(personID);
-    if(editWorker != null){
+    if(!editWorker.equals( null)){
       editWorker.setName(worker.getName());
       //worker.setPersonID(Math.toIntExact(personID));
-      return repo.save(worker);
+      return repo.save(editWorker);
     }
     else
       return null;

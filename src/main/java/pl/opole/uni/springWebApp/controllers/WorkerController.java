@@ -23,7 +23,7 @@ public class WorkerController {
   }
 
   @PutMapping("/Worker")
-  public Worker editWorker(@RequestParam Long personID, Worker newWorker){
-    return workerService.editWorker(personID, newWorker);
+  public Worker editWorker(@RequestParam Long id, @RequestBody Worker newWorker){
+    return workerService.editWorker(id, newWorker);
   }
 }
