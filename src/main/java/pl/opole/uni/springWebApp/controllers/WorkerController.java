@@ -1,6 +1,7 @@
 package pl.opole.uni.springWebApp.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 import pl.opole.uni.springWebApp.models.Worker;
 import pl.opole.uni.springWebApp.services.WorkerService;
@@ -8,6 +9,7 @@ import pl.opole.uni.springWebApp.services.WorkerService;
 import java.util.List;
 
 @RestController
+@Secured({"ROLE_ADMIN", "ROLE_USER"})
 public class WorkerController {
   @Autowired
   private WorkerService workerService;
