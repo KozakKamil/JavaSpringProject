@@ -6,6 +6,8 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import pl.opole.uni.springWebApp.controllers.AcountController;
+import pl.opole.uni.springWebApp.services.UserAcountService;
 
 @Configuration
 @EnableGlobalMethodSecurity(securedEnabled = true)
@@ -19,8 +21,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
       .httpBasic();
   }
 
+
   @Override
   protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    //jak pobrać użytkowników i ich dodać?
+
     auth.inMemoryAuthentication()
       .withUser("kamil@example.org")
       .password("{noop}xxx")
