@@ -17,7 +17,7 @@ public class SupplierService extends MainService<Supplier, ISupplierRepository> 
       editSupplier.setNip(supplier.getNip());
       editSupplier.setAdderess(supplier.getAdderess());
       editSupplier.setRegon(supplier.getRegon());
-      return repo.save(supplier);
+      return repo.save(editSupplier);
     }
     else
       return null;
