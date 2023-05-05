@@ -14,7 +14,12 @@ public class ProductService extends MainService<Product, IProductRepository> {
     Product editProduct = repo.getById(personID);
     if(editProduct != null){
       editProduct.setName(product.getName());
-      return repo.save(product);
+      editProduct.setGrossPrice(product.getGrossPrice());
+      editProduct.setNetPrice(product.getNetPrice());
+      editProduct.setCategory(product.getCategory());
+      editProduct.setOrderList(product.getOrderList());
+      editProduct.setSupplier(product.getSupplier());
+      return repo.save(editProduct);
     }
     else
       return null;
