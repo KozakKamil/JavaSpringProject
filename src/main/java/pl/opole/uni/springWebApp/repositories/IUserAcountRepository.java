@@ -6,4 +6,5 @@ import pl.opole.uni.springWebApp.models.UserAcount;
 
 @Repository
 public interface IUserAcountRepository extends JpaRepository<UserAcount, Long> {
+  UserAcount findByUsername(String username);
 }
