@@ -1,14 +1,12 @@
 package pl.opole.uni.springWebApp.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Person {
   @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
   Long personID;
   private String name;
   private String adderess;

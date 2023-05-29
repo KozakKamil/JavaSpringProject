@@ -10,10 +10,11 @@ import pl.opole.uni.springWebApp.repositories.IProductRepository;
 @Service
 public class CategoryService extends MainService<Category, ICategoryRepository> {
 
-  public Category editCategory(Long personID, Category customerOrder){
+  public Category editCategory(Long personID, Category category){
     Category editCategory = repo.getById(personID);
     if(editCategory != null){
-      return repo.save(customerOrder);
+      editCategory.setName(category.getName());
+      return repo.save(category);
     }
     else
       return null;
