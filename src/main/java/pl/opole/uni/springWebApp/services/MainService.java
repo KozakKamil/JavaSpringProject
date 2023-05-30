@@ -15,6 +15,10 @@ public class MainService<E ,R extends JpaRepository<E, Long>> {
     return repo.findAll();
   }
 
+ public void deletleItem(Long id){
+     repo.deleteById(id);
+ }
+
   public E addItem(E item)
   {
     return repo.save(item);

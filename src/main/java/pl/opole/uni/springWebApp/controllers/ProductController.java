@@ -9,9 +9,11 @@ import pl.opole.uni.springWebApp.services.ProductService;
 import pl.opole.uni.springWebApp.services.SupplierService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @Secured({"ROLE_ADMIN", "ROLE_USER"})
+@CrossOrigin(origins = "http://localhost:3000")
 public class ProductController {
   @Autowired
   private ProductService productService;
@@ -20,12 +22,28 @@ public class ProductController {
   {
     return productService.getAllItems();
   }
+
+  @DeleteMapping("/Product")
+  public void deleteProduct(@RequestParam Long productID){
+    productService.deletleItem(productID);
+  }
+
+  @GetMapping("/ProductDetails")
+  public Product getOneProduct(@RequestParam Long productID){
+    var products = productService.getAllItems();
+    var desiredProduct = products.stream()
+      .filter(product -> product.getProduct_ID() == productID)
+      .findFirst();
+    Product product = desiredProduct.orElse(null);
+
+    return product;
+  }
+
   @PostMapping("/Product")
   public Product addProduct(@RequestBody Product newProduct)
   {
     return productService.addItem(newProduct);
   }
-
   @PutMapping("/Product")
   public Product editProduct(@RequestParam Long productID, @RequestBody  Product newProduct){
     return productService.editProduct(productID,newProduct);
