@@ -8,21 +8,21 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @Configuration
-@EnableGlobalMethodSecurity(securedEnabled = true)
+//@EnableGlobalMethodSecurity(securedEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
   @Override
   protected void configure(HttpSecurity http) throws Exception {
     http
-      .anonymous().and()
-      .authorizeRequests()
-      .antMatchers("/ping**")
-      .permitAll()
-      .and()
+      .csrf().disable()
       .authorizeRequests()
       .anyRequest()
-      .authenticated()
-      .and()
-      .httpBasic();
+      .permitAll();
+//      .and()
+//      .authorizeRequests()
+//      .anyRequest()
+//      .authenticated()
+//      .and()
+//      .httpBasic();
   }
 
   @Override
